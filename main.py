@@ -186,7 +186,8 @@ def choose_turn():
     ##function that will be called after player clicked on specific turn
     def clicked_combobox(var, indx, mode):
         global turn_number, turns_back, movement_back
-        turn_number = int(choosen_turn.get()[-1]) + 1
+        turn_str = choosen_turn.get()
+        turn_number = int(turn_str.split(" ")[1]) + 1
         turns_back = all_turns - turn_number - 1
         turn_back()
         if(turn_number == 0): btn_back.configure(state = DISABLED)            
