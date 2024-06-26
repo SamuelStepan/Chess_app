@@ -21,13 +21,13 @@ class Pawn(Piece):
                 return 2
             return 0
 
-        if((white and row==1) or (not white and row==6)):     ##this signals that pawn had not yet moved, so he can move two squares before him
-            if(chess_board[row+2*dir][column]==0):     ##if two squares before pawn in empty, he can move there
-                opt_table[row+2*dir][column]=4
-
         if(super().ConditionFct(row,column,dir,0)):    ##checks if pawn can move ahead one squre
                 if(chess_board[row+dir][column]==0):
                     opt_table[row+dir][column]=1
+                    #pawn is not blocked so we can check if he can move 2 pieces ahead
+                    if((white and row==1) or (not white and row==6)):     ##this signals that pawn had not yet moved, so he can move two squares before him 
+                        if(chess_board[row+2*dir][column]==0):     ##if the second square in front of pawn is empty, he can move there
+                            opt_table[row+2*dir][column]=4
         
         if(super().ConditionFct(row,column,dir,1)):
             opt_table[row+dir][column+1]=HelpFct(1)
