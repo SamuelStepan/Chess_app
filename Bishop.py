@@ -1,7 +1,8 @@
 from Piece import Piece
 
 class Bishop(Piece):
-    def Options(self,row,column,chess_board,white):            ##function that will return 2D array reprezenting possible options where to move bishop
+    def Options(self,row,column,chess_board,white):            
+        """function that will return 2D array reprezenting possible options where to move bishopgit s"""
         opt_table=[[0 for i in range(8)] for j in range(8)]     ##creating table for possible options to move bishop, 0 for not possible, 1 for possible, 2 for taking enemy piece
         
         def HelpFct(vert,horiz):                                ##help function to find out if it is possible to move bishop to specific coordinates
